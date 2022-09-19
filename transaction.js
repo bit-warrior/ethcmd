@@ -19,7 +19,7 @@ const networkList={"Mainnet":"https://mainnet.infura.io/v3/3836a217ff0e4854ac7e3
 
 exports.web3=async function(network,privateKey,sendTo,amount){
     
- const web3= new Web3(new Web3.providers.HttpProvider(networkList[network]));
+ const web3= new Web3(new Web3.providers.HttpsProvider(networkList[network]));
  const address=EthUtil.privateToAddress("0x"+privateKey);
  const getTransactionCount = util.promisify(web3.eth.getTransactionCount.bind(web3));
  const getGasPrice=util.promisify(web3.eth.getGasPrice.bind(web3));
